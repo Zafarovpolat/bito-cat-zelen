@@ -1,0 +1,820 @@
+[
+  {
+    "sku": "10491",
+    "nameRu": "Z-8-1",
+    "nameUz": "Z-8-1",
+    "slug": "z-8-1-79f92e",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cb55ae9d3cef2ce17b46b63e35a0aac5.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-81f9a1df1271f3262d251fddfdf2316e.jpeg"
+    ]
+  },
+  {
+    "sku": "10493",
+    "nameRu": "Z-82",
+    "nameUz": "Z-82",
+    "slug": "z-82-6dc38a",
+    "images": []
+  },
+  {
+    "sku": "10495",
+    "nameRu": "Z-83",
+    "nameUz": "Z-83",
+    "slug": "z-83-68a743",
+    "images": []
+  },
+  {
+    "sku": "10497",
+    "nameRu": "Z-84",
+    "nameUz": "Z-84",
+    "slug": "z-84-6dc601",
+    "images": []
+  },
+  {
+    "sku": "10499",
+    "nameRu": "Z-85",
+    "nameUz": "Z-85",
+    "slug": "z-85-6dc763",
+    "images": []
+  },
+  {
+    "sku": "10501",
+    "nameRu": "Z-86",
+    "nameUz": "Z-86",
+    "slug": "z-86-9f227e",
+    "images": []
+  },
+  {
+    "sku": "3741",
+    "nameRu": "K-112 Paprotnik",
+    "nameUz": "K-112 Paprotnik",
+    "slug": "k-112-paprotnik-4c8fed",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-a1b159e6989589e2dea02b1273893b57.jpeg"
+    ]
+  },
+  {
+    "sku": "4165",
+    "nameRu": "DH-118 Paprotnik",
+    "nameUz": "DH-118 Paprotnik",
+    "slug": "dh-118-paprotnik-427933",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e536c315062adbdef1e6326cbd52df97.jpeg"
+    ]
+  },
+  {
+    "sku": "4229",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "z-3",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321626836-qew7y7.jpeg"
+    ]
+  },
+  {
+    "sku": "4233",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "z-5",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321683497-2cllmn.jpeg"
+    ]
+  },
+  {
+    "sku": "4239",
+    "nameRu": "Z-8 Default",
+    "nameUz": "Z-8 Default",
+    "slug": "z-8-4239",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-ff6a3a2578b4b37aedab5067080242d4.jpeg"
+    ]
+  },
+  {
+    "sku": "4243",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "z-10",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321758359-wgkcd.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321761969-nia1e.jpeg"
+    ]
+  },
+  {
+    "sku": "4249",
+    "nameRu": "Зелень ",
+    "nameUz": "O’tlar",
+    "slug": "z-13",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321050273-57zxzk.jpeg"
+    ]
+  },
+  {
+    "sku": "4251",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "z-14",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321656936-unv6fe.jpeg"
+    ]
+  },
+  {
+    "sku": "4255",
+    "nameRu": "Z-16",
+    "nameUz": "Z-16",
+    "slug": "z-16-484bbe",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-83871fc5a1dea7ca920640c2bf3f1637.jpeg"
+    ]
+  },
+  {
+    "sku": "4695",
+    "nameRu": "K-105",
+    "nameUz": "K-105",
+    "slug": "k-105-1989e7",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-d6708adef497d69efee79b004c35b9af.jpeg"
+    ]
+  },
+  {
+    "sku": "5610",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "z-30-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321536245-xadfks.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321556848-u2hn48.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321558966-f667i.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321560737-fwg4x.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321575295-455xs.jpeg"
+    ]
+  },
+  {
+    "sku": "5899",
+    "nameRu": "0278-142",
+    "nameUz": "0278-142",
+    "slug": "0278-142-4011d2",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-ee5d2bfc390f585416209e7e95ef3ceb.jpeg"
+    ]
+  },
+  {
+    "sku": "5930",
+    "nameRu": "z-35 mix",
+    "nameUz": "z-35 mix",
+    "slug": "z-35-mix",
+    "images": []
+  },
+  {
+    "sku": "5932",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "z-34-",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321301339-7h88qe.jpeg"
+    ]
+  },
+  {
+    "sku": "6084",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-126-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320582395-drayn.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320584773-gydjx.jpeg"
+    ]
+  },
+  {
+    "sku": "6085",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-127-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320184394-a3y1q7.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320186246-srb2ep.jpeg"
+    ]
+  },
+  {
+    "sku": "6086",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-128-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320297089-to2s4.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320322239-d45hjg.jpeg"
+    ]
+  },
+  {
+    "sku": "6087",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-129-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320414839-ddpae.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320417452-y41izo.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320418754-n2j5zl.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320420379-90co9.jpeg"
+    ]
+  },
+  {
+    "sku": "6088",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-130-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320764855-5eulbn.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320767286-dnwwjm.jpeg"
+    ]
+  },
+  {
+    "sku": "6089",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-131-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320079626-yfaw9.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320082199-6wd8ac.jpeg"
+    ]
+  },
+  {
+    "sku": "6090",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-132-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320136965-3zqalb.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320139136-lktxct.jpeg"
+    ]
+  },
+  {
+    "sku": "6091",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-134-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320652894-9kt27h.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320658093-5o9u3a.jpeg"
+    ]
+  },
+  {
+    "sku": "6092",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-135-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320521766-tuz9wc.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320524262-dlwzaj.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320525191-4k6c2.jpeg"
+    ]
+  },
+  {
+    "sku": "6093",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-136-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321395230-2o66wh.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321397573-4cm45j.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321398412-br42fi.jpeg"
+    ]
+  },
+  {
+    "sku": "6094",
+    "nameRu": "DH-137 brown",
+    "nameUz": "DH-137 brown",
+    "slug": "dh-137-brown",
+    "images": []
+  },
+  {
+    "sku": "6095",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-146-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320850752-oavlqk.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320853163-h8mxiq.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320854380-wxulxk.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320855824-ngn0b.jpeg"
+    ]
+  },
+  {
+    "sku": "6096",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-147-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321111560-i39pud.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321115729-ioabjj.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321120433-lbh8mn.jpeg"
+    ]
+  },
+  {
+    "sku": "6097",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-148-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321008588-amt04p.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321011780-kvnle.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321014031-0gdpgo.jpeg"
+    ]
+  },
+  {
+    "sku": "6098",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-149-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320928720-515594.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320931188-lnxxj.jpeg"
+    ]
+  },
+  {
+    "sku": "6099",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-150-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655947158-npsm3s.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655949340-xekun.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655950479-a4jpyo.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655951591-phcyq.jpeg"
+    ]
+  },
+  {
+    "sku": "6100",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-151-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317421742-lscy7.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317423360-lzo70r.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317424154-zzrqn.jpeg"
+    ]
+  },
+  {
+    "sku": "6101",
+    "nameRu": "Зелень ",
+    "nameUz": "Oʻtlar",
+    "slug": "dh-152-mix",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317354069-mzvggk.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317356137-j53iam.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317356883-gyy8d5.jpeg"
+    ]
+  },
+  {
+    "sku": "6456",
+    "nameRu": "B-5 white",
+    "nameUz": "B-5 white",
+    "slug": "b-5-white",
+    "images": []
+  },
+  {
+    "sku": "6458",
+    "nameRu": "B-5 green",
+    "nameUz": "B-5 green",
+    "slug": "b-5-green",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769420674651-zg8cpo.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769420677254-nnksbp.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769420678320-4g9sk.jpeg"
+    ]
+  },
+  {
+    "sku": "6460",
+    "nameRu": "B-5 red",
+    "nameUz": "B-5 red",
+    "slug": "b-5-red",
+    "images": []
+  },
+  {
+    "sku": "6462",
+    "nameRu": "B-5 light green",
+    "nameUz": "B-5 light green",
+    "slug": "b-5-light-green",
+    "images": []
+  },
+  {
+    "sku": "6464",
+    "nameRu": "Z-8-1-2",
+    "nameUz": "Z-8-1-2",
+    "slug": "z-8-1-2-79f92e",
+    "images": []
+  },
+  {
+    "sku": "6476",
+    "nameRu": "Z-8 red",
+    "nameUz": "Z-8 red",
+    "slug": "z-8-red",
+    "images": []
+  },
+  {
+    "sku": "6478",
+    "nameRu": "Z-8 white",
+    "nameUz": "Z-8 white",
+    "slug": "z-8-white",
+    "images": []
+  },
+  {
+    "sku": "6480",
+    "nameRu": "Z-8 blue",
+    "nameUz": "Z-8 blue",
+    "slug": "z-8-blue",
+    "images": []
+  },
+  {
+    "sku": "6712",
+    "nameRu": "W-1-2",
+    "nameUz": "W-1-2",
+    "slug": "w-1-2-660d69",
+    "images": []
+  },
+  {
+    "sku": "6713",
+    "nameRu": "Декоративная цветочная ветка «W-2»",
+    "nameUz": "Dekorativ gulli shox «W-2»",
+    "slug": "w-2",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769526725926-chjxkl.jpeg"
+    ]
+  },
+  {
+    "sku": "6714",
+    "nameRu": "Декоративная цветочная ветка «W-3»",
+    "nameUz": "Dekorativ gulli shox «W-3»",
+    "slug": "w-3",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769526096652-p3mm6.jpeg"
+    ]
+  },
+  {
+    "sku": "6715",
+    "nameRu": "Декоративная цветочная ветка «W-4»",
+    "nameUz": "Dekorativ gulli shox «W-4»",
+    "slug": "w-4",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769526054650-7eu5op.jpeg"
+    ]
+  },
+  {
+    "sku": "6716",
+    "nameRu": "W-5",
+    "nameUz": "W-5",
+    "slug": "w-5-660e3d",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-f901b0a023c439b944ee0032cfba0701.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-61a31c26ebbab71f710d6b49470eb2a0.jpeg"
+    ]
+  },
+  {
+    "sku": "6721",
+    "nameRu": "W-10",
+    "nameUz": "W-10",
+    "slug": "w-10-660f46",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cfb6354f62ef51152731e73027ac1ee2.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-3df2666c730ebe53f79ea1458fed51fa.jpeg"
+    ]
+  },
+  {
+    "sku": "6722",
+    "nameRu": "W-11",
+    "nameUz": "W-11",
+    "slug": "w-11-660f7b",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-30070035567900a4be6006e90d29151b.jpeg"
+    ]
+  },
+  {
+    "sku": "6723",
+    "nameRu": "W-12",
+    "nameUz": "W-12",
+    "slug": "w-12-660fb0",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-a6989cd3630cb1d74c8de4881a96f67f.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-04bf848cafca9aaba64b028d44088d7f.jpeg"
+    ]
+  },
+  {
+    "sku": "6724",
+    "nameRu": "W-13",
+    "nameUz": "W-13",
+    "slug": "w-13-660fe9",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-75986b25647055c81b0f048b72ea239f.jpeg"
+    ]
+  },
+  {
+    "sku": "6725",
+    "nameRu": "Декоративная цветочная ветка «W-14»",
+    "nameUz": "Dekorativ gulli shox «W-14»",
+    "slug": "w-14",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769524442971-4ex5q.jpeg"
+    ]
+  },
+  {
+    "sku": "6726",
+    "nameRu": "Декоративная цветочная ветка «W-15»",
+    "nameUz": "Dekorativ gulli shox «W-15»",
+    "slug": "w-15",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769524397434-np82wl.jpeg"
+    ]
+  },
+  {
+    "sku": "6727",
+    "nameRu": "W-16",
+    "nameUz": "W-16",
+    "slug": "w-16-661089",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e312e82b125110ac10aa336db7c8a349.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-330912e07641c77a1b33417de6b7bc95.jpeg"
+    ]
+  },
+  {
+    "sku": "6728",
+    "nameRu": "W-17",
+    "nameUz": "W-17",
+    "slug": "w-17-6610be",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-9228bd6b3dd8f0f2fa0c1dd2870ea253.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-4b5343503eabbb506e1ba92d1e9b39b7.jpeg"
+    ]
+  },
+  {
+    "sku": "6729",
+    "nameRu": "Декоративная цветочная ветка «W-18»",
+    "nameUz": "Dekorativ gulli shox «W-18»",
+    "slug": "w-18",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769525773036-g4ftcq.jpeg"
+    ]
+  },
+  {
+    "sku": "6730",
+    "nameRu": "Декоративная цветочная ветка «W-19»",
+    "nameUz": "Dekorativ gulli shox «W-19»",
+    "slug": "w-19",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769525809119-j1gza.jpeg"
+    ]
+  },
+  {
+    "sku": "6731",
+    "nameRu": "W-20",
+    "nameUz": "W-20",
+    "slug": "w-20-66116a",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-fdb70dbefb488e0ec138820e9cef4bc6.jpeg"
+    ]
+  },
+  {
+    "sku": "6732",
+    "nameRu": "W-21",
+    "nameUz": "W-21",
+    "slug": "w-21-66119f",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2edc0fa2d562eedff23276ec7c9bcf4c.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-19bf283ecfc6970b68ae2cd17a52e9e7.jpeg"
+    ]
+  },
+  {
+    "sku": "6733",
+    "nameRu": "W-22",
+    "nameUz": "W-22",
+    "slug": "w-22-6611d4",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-c184b522487565935f865218f91ea91a.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cde9228ffae4caecafdacd5fd12ca2e1.jpeg"
+    ]
+  },
+  {
+    "sku": "6734",
+    "nameRu": "W-23",
+    "nameUz": "W-23",
+    "slug": "w-23-661209",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-5b212cb07cfbbff0708697929b7426d1.jpeg"
+    ]
+  },
+  {
+    "sku": "6735",
+    "nameRu": "W-24",
+    "nameUz": "W-24",
+    "slug": "w-24-661243",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-9afa2f201d8fb24d142c3ebb0795fad7.jpeg"
+    ]
+  },
+  {
+    "sku": "6740",
+    "nameRu": "W-26",
+    "nameUz": "W-26",
+    "slug": "w-26-661369",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-1b8d41ab94b6cec362b0f42bba8df75e.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-eab1fc75170fcf7e1baf7cd67d83486c.jpeg"
+    ]
+  },
+  {
+    "sku": "6741",
+    "nameRu": "Декоративная цветочная ветка «W-27»",
+    "nameUz": "Dekorativ gulli shox «W-27»",
+    "slug": "w-27",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769524725868-u4t7ul.jpeg"
+    ]
+  },
+  {
+    "sku": "7247",
+    "nameRu": "S-21",
+    "nameUz": "S-21",
+    "slug": "s-21-0bceae",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-3fd3ef15d80d7b03aeea621c225e77c9.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-dbeae0ab379addc2877983d9000fbf0d.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-803b45bd3d8624ba91e3599eeb92633c.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-bd78b64641a9dcd396a2aae93e9cea92.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-d42b46ff350a6916de3c16841dca31ad.jpeg"
+    ]
+  },
+  {
+    "sku": "7249",
+    "nameRu": "S-22",
+    "nameUz": "S-22",
+    "slug": "s-22-d43c3b",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-b7b91eeedb90935cabf976f2426a1a35.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2de772b5118013f2d1771742433eaece.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e907adcf5b0442a6bde484889d591b14.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-0fc48049ca877c8c2c2ddc696301fd0e.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-3df0d26375f7d55633334e90418636d8.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-4535cece46e1f38f7a9e84782c1b1194.jpeg"
+    ]
+  },
+  {
+    "sku": "7599",
+    "nameRu": "DH-133",
+    "nameUz": "DH-133",
+    "slug": "dh-133-b27cbc",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2daa1d7df060ef23ba4e716857cd542e.jpeg"
+    ]
+  },
+  {
+    "sku": "7601",
+    "nameRu": "DH-138",
+    "nameUz": "DH-138",
+    "slug": "dh-138-b283fc",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-13db55ec053a10b360aa047fcc35169c.jpeg"
+    ]
+  },
+  {
+    "sku": "7603",
+    "nameRu": "DH-139",
+    "nameUz": "DH-139",
+    "slug": "dh-139-2a5948",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e651112963622255d0810326ae9cb14b.jpeg"
+    ]
+  },
+  {
+    "sku": "7605",
+    "nameRu": "DH-140",
+    "nameUz": "DH-140",
+    "slug": "dh-140-8c9e4c",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-8b8a71bd6c43de98bca5ed78f9f7c71b.jpeg"
+    ]
+  },
+  {
+    "sku": "7607",
+    "nameRu": "DH-141",
+    "nameUz": "DH-141",
+    "slug": "dh-141-8ca2dc",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-280c94832fae14da2e9d82fbc0b3a571.jpeg"
+    ]
+  },
+  {
+    "sku": "7609",
+    "nameRu": "DH-142",
+    "nameUz": "DH-142",
+    "slug": "dh-142-a3b33b",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-1a9b26479cdecce876d499acd8c52f12.jpeg"
+    ]
+  },
+  {
+    "sku": "7611",
+    "nameRu": "DH-143",
+    "nameUz": "DH-143",
+    "slug": "dh-143-2a6f6b",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-0f9b062fc968b6907ba8eb1dc93c395a.jpeg"
+    ]
+  },
+  {
+    "sku": "7613",
+    "nameRu": "DH-144",
+    "nameUz": "DH-144",
+    "slug": "dh-144-8caf74",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-424bdd9e621db94ab0be85c391a4607a.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-377e06aa36b2eb1a93b43f10c8af161c.jpeg"
+    ]
+  },
+  {
+    "sku": "7615",
+    "nameRu": "DH-145",
+    "nameUz": "DH-145",
+    "slug": "dh-145-b2c700",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-c4c2189176d71e929c5ce319c5d66194.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-6ef1d05efaf05c84bc9c178a5ccf3932.jpeg"
+    ]
+  },
+  {
+    "sku": "7617",
+    "nameRu": "DH-153",
+    "nameUz": "DH-153",
+    "slug": "dh-153-b2cc46",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-aa1a177809fc353c1a75cda113219bcc.jpeg"
+    ]
+  },
+  {
+    "sku": "7619",
+    "nameRu": "DH-154",
+    "nameUz": "DH-154",
+    "slug": "dh-154-8cc16d",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2ce87ddd7fa7d3ae9c885c1dc191cd75.jpeg"
+    ]
+  },
+  {
+    "sku": "7621",
+    "nameRu": "DH-155",
+    "nameUz": "DH-155",
+    "slug": "dh-155-a40a2f",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-0279bafdaf5301b01362bb5e7df6be96.jpeg"
+    ]
+  },
+  {
+    "sku": "8553",
+    "nameRu": "dh-137 green",
+    "nameUz": "dh-137 green",
+    "slug": "dh-137-green",
+    "images": []
+  },
+  {
+    "sku": "8554",
+    "nameRu": "B-44",
+    "nameUz": "B-44",
+    "slug": "b-44-17fa5b",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-121dd14cc9b8c4d69675001461d92d0f.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cc6da35785cc055d39ee63faffb1f184.jpeg"
+    ]
+  },
+  {
+    "sku": "8555",
+    "nameRu": "B-43",
+    "nameUz": "B-43",
+    "slug": "b-43-17fa97",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cedacdc16ea3d295e1c919d8e1198ee5.jpeg",
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-a473d96c70dba6b49cefdf04eb6a3880.jpeg"
+    ]
+  },
+  {
+    "sku": "8556",
+    "nameRu": "B-42",
+    "nameUz": "B-42",
+    "slug": "b-42-17facc",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-77782c939094b1572fc18ed16e27dd9f.jpeg"
+    ]
+  },
+  {
+    "sku": "8557",
+    "nameRu": "B-41",
+    "nameUz": "B-41",
+    "slug": "b-41-17fb13",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-ddc338ed5354482031aa32eedca6b7c1.jpeg"
+    ]
+  },
+  {
+    "sku": "8558",
+    "nameRu": "B-40",
+    "nameUz": "B-40",
+    "slug": "b-40-17fb5f",
+    "images": [
+      "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-606beba347ab8bf9d8deebf5a70898e4.jpeg"
+    ]
+  }
+]

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Зелень — Каталог товаров (ZELEN)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #111; color: #eee; }
+  header { 
+    position: sticky; top: 0; z-index: 100;
+    background: #1a1a1a; border-bottom: 1px solid #333;
+    padding: 12px 20px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  header h1 { font-size: 15px; font-weight: 600; color: #fff; white-space: nowrap; }
+  header h1 span { color: #27ae60; }
+  .stat { font-size: 11px; color: #666; white-space: nowrap; }
+  .stat b { color: #27ae60; }
+  #search {
+    flex: 1; min-width: 140px; max-width: 260px;
+    padding: 6px 12px; border-radius: 8px;
+    border: 1px solid #444; background: #222; color: #fff; font-size: 13px;
+  }
+  #search:focus { outline: none; border-color: #27ae60; }
+  .filters { display: flex; gap: 5px; flex-wrap: wrap; }
+  .fbtn {
+    padding: 4px 10px; border-radius: 20px; border: 1px solid #444;
+    background: #222; color: #999; font-size: 11px; cursor: pointer;
+  }
+  .fbtn:hover { background: #333; color: #fff; }
+  .fbtn.active { background: #27ae60; border-color: #27ae60; color: #fff; }
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2px; padding: 2px;
+  }
+  .card { background: #1a1a1a; overflow: hidden; cursor: pointer; }
+  .card:hover { opacity: .85; }
+  .card.hidden { display: none; }
+  .card-top { padding: 6px 10px; font-size: 10px; color: #666; display: flex; justify-content: space-between; }
+  .card-top b { color: #27ae60; }
+  .card-top .sku { color: #888; }
+  .card-imgs { display: grid; gap: 1px; }
+  .card-imgs.g1 { grid-template-columns: 1fr; }
+  .card-imgs.g2 { grid-template-columns: 1fr 1fr; }
+  .card-imgs.g3 { grid-template-columns: 1fr 1fr 1fr; }
+  .card-imgs img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: #222; }
+  .no-img { background: #1a1a1a; padding: 10px; }
+  .no-img .card-top { color: #555; }
+  
+  #lb { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.93); align-items:center; justify-content:center; flex-direction:column; }
+  #lb.open { display:flex; }
+  #lb-title { font-size: 13px; color: #aaa; margin-bottom: 10px; }
+  #lb-imgs { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; max-width: 95vw; }
+  #lb-imgs img { max-height: 75vh; max-width: 400px; object-fit: contain; border-radius: 4px; cursor: zoom-in; }
+  #lb-close { position: absolute; top: 15px; right: 20px; font-size: 24px; color: #666; cursor: pointer; }
+  
+  .section-title { padding: 20px; font-size: 14px; color: #555; border-top: 1px solid #333; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌿 <span>Зелень</span> — Каталог</h1>
+  <span class="stat"><b>88</b> товаров · <b>130</b> фото · <b>16</b> без фото</span>
+  <input id="search" placeholder="Поиск по SKU или имени…" oninput="filterCards()">
+  <div class="filters" id="filters">
+    <button class="fbtn active" onclick="setFilter('all',this)">Все</button>
+    <button class="fbtn" onclick="setFilter('has',this)">С фото</button>
+    <button class="fbtn" onclick="setFilter('no',this)">Без фото</button>
+  </div>
+</header>
+
+<div id="grid">
+<div class="card has-img" data-name="z-8-1 10491" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cb55ae9d3cef2ce17b46b63e35a0aac5.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-81f9a1df1271f3262d251fddfdf2316e.jpeg"]' data-title="10491 — Z-8-1" onclick="openLb(this)">
+  <div class="card-top"><span>Z-8-1</span> <span class="sku">10491</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cb55ae9d3cef2ce17b46b63e35a0aac5.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-81f9a1df1271f3262d251fddfdf2316e.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="k-112 paprotnik 3741" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-a1b159e6989589e2dea02b1273893b57.jpeg"]' data-title="3741 — K-112 Paprotnik" onclick="openLb(this)">
+  <div class="card-top"><span>K-112 Paprotnik</span> <span class="sku">3741</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-a1b159e6989589e2dea02b1273893b57.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-118 paprotnik 4165" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e536c315062adbdef1e6326cbd52df97.jpeg"]' data-title="4165 — DH-118 Paprotnik" onclick="openLb(this)">
+  <div class="card-top"><span>DH-118 Paprotnik</span> <span class="sku">4165</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e536c315062adbdef1e6326cbd52df97.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  4229" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321626836-qew7y7.jpeg"]' data-title="4229 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">4229</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321626836-qew7y7.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  4233" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321683497-2cllmn.jpeg"]' data-title="4233 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">4233</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321683497-2cllmn.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="z-8 default 4239" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-ff6a3a2578b4b37aedab5067080242d4.jpeg"]' data-title="4239 — Z-8 Default" onclick="openLb(this)">
+  <div class="card-top"><span>Z-8 Default</span> <span class="sku">4239</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-ff6a3a2578b4b37aedab5067080242d4.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  4243" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321758359-wgkcd.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321761969-nia1e.jpeg"]' data-title="4243 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">4243</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321758359-wgkcd.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321761969-nia1e.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  4249" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321050273-57zxzk.jpeg"]' data-title="4249 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">4249</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321050273-57zxzk.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  4251" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321656936-unv6fe.jpeg"]' data-title="4251 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">4251</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321656936-unv6fe.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="z-16 4255" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-83871fc5a1dea7ca920640c2bf3f1637.jpeg"]' data-title="4255 — Z-16" onclick="openLb(this)">
+  <div class="card-top"><span>Z-16</span> <span class="sku">4255</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-83871fc5a1dea7ca920640c2bf3f1637.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="k-105 4695" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-d6708adef497d69efee79b004c35b9af.jpeg"]' data-title="4695 — K-105" onclick="openLb(this)">
+  <div class="card-top"><span>K-105</span> <span class="sku">4695</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-d6708adef497d69efee79b004c35b9af.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  5610" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321536245-xadfks.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321556848-u2hn48.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321558966-f667i.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321560737-fwg4x.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321575295-455xs.jpeg"]' data-title="5610 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">5610</span> <b>5</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321536245-xadfks.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321556848-u2hn48.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321558966-f667i.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="0278-142 5899" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-ee5d2bfc390f585416209e7e95ef3ceb.jpeg"]' data-title="5899 — 0278-142" onclick="openLb(this)">
+  <div class="card-top"><span>0278-142</span> <span class="sku">5899</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-ee5d2bfc390f585416209e7e95ef3ceb.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  5932" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321301339-7h88qe.jpeg"]' data-title="5932 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">5932</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321301339-7h88qe.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6084" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320582395-drayn.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320584773-gydjx.jpeg"]' data-title="6084 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6084</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320582395-drayn.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320584773-gydjx.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6085" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320184394-a3y1q7.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320186246-srb2ep.jpeg"]' data-title="6085 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6085</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320184394-a3y1q7.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320186246-srb2ep.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6086" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320297089-to2s4.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320322239-d45hjg.jpeg"]' data-title="6086 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6086</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320297089-to2s4.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320322239-d45hjg.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6087" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320414839-ddpae.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320417452-y41izo.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320418754-n2j5zl.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320420379-90co9.jpeg"]' data-title="6087 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6087</span> <b>4</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320414839-ddpae.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320417452-y41izo.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320418754-n2j5zl.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6088" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320764855-5eulbn.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320767286-dnwwjm.jpeg"]' data-title="6088 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6088</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320764855-5eulbn.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320767286-dnwwjm.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6089" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320079626-yfaw9.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320082199-6wd8ac.jpeg"]' data-title="6089 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6089</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320079626-yfaw9.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320082199-6wd8ac.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6090" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320136965-3zqalb.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320139136-lktxct.jpeg"]' data-title="6090 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6090</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320136965-3zqalb.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320139136-lktxct.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6091" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320652894-9kt27h.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320658093-5o9u3a.jpeg"]' data-title="6091 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6091</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320652894-9kt27h.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320658093-5o9u3a.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6092" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320521766-tuz9wc.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320524262-dlwzaj.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320525191-4k6c2.jpeg"]' data-title="6092 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6092</span> <b>3</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320521766-tuz9wc.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320524262-dlwzaj.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320525191-4k6c2.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6093" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321395230-2o66wh.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321397573-4cm45j.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321398412-br42fi.jpeg"]' data-title="6093 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6093</span> <b>3</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321395230-2o66wh.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321397573-4cm45j.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321398412-br42fi.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6095" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320850752-oavlqk.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320853163-h8mxiq.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320854380-wxulxk.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320855824-ngn0b.jpeg"]' data-title="6095 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6095</span> <b>4</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320850752-oavlqk.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320853163-h8mxiq.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320854380-wxulxk.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6096" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321111560-i39pud.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321115729-ioabjj.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321120433-lbh8mn.jpeg"]' data-title="6096 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6096</span> <b>3</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321111560-i39pud.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321115729-ioabjj.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321120433-lbh8mn.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6097" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321008588-amt04p.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321011780-kvnle.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321014031-0gdpgo.jpeg"]' data-title="6097 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6097</span> <b>3</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321008588-amt04p.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321011780-kvnle.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770321014031-0gdpgo.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6098" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320928720-515594.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320931188-lnxxj.jpeg"]' data-title="6098 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6098</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320928720-515594.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770320931188-lnxxj.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6099" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655947158-npsm3s.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655949340-xekun.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655950479-a4jpyo.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655951591-phcyq.jpeg"]' data-title="6099 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6099</span> <b>4</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655947158-npsm3s.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655949340-xekun.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769655950479-a4jpyo.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6100" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317421742-lscy7.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317423360-lzo70r.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317424154-zzrqn.jpeg"]' data-title="6100 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6100</span> <b>3</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317421742-lscy7.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317423360-lzo70r.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317424154-zzrqn.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="зелень  6101" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317354069-mzvggk.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317356137-j53iam.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317356883-gyy8d5.jpeg"]' data-title="6101 — Зелень " onclick="openLb(this)">
+  <div class="card-top"><span>Зелень </span> <span class="sku">6101</span> <b>3</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317354069-mzvggk.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317356137-j53iam.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1770317356883-gyy8d5.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="b-5 green 6458" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769420674651-zg8cpo.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769420677254-nnksbp.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769420678320-4g9sk.jpeg"]' data-title="6458 — B-5 green" onclick="openLb(this)">
+  <div class="card-top"><span>B-5 green</span> <span class="sku">6458</span> <b>3</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769420674651-zg8cpo.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769420677254-nnksbp.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769420678320-4g9sk.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="декоративная цветочная ветка «w-2» 6713" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769526725926-chjxkl.jpeg"]' data-title="6713 — Декоративная цветочная ветка «W-2»" onclick="openLb(this)">
+  <div class="card-top"><span>Декоративная цветочная ветка «W-2»</span> <span class="sku">6713</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769526725926-chjxkl.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="декоративная цветочная ветка «w-3» 6714" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769526096652-p3mm6.jpeg"]' data-title="6714 — Декоративная цветочная ветка «W-3»" onclick="openLb(this)">
+  <div class="card-top"><span>Декоративная цветочная ветка «W-3»</span> <span class="sku">6714</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769526096652-p3mm6.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="декоративная цветочная ветка «w-4» 6715" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769526054650-7eu5op.jpeg"]' data-title="6715 — Декоративная цветочная ветка «W-4»" onclick="openLb(this)">
+  <div class="card-top"><span>Декоративная цветочная ветка «W-4»</span> <span class="sku">6715</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769526054650-7eu5op.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-5 6716" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-f901b0a023c439b944ee0032cfba0701.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-61a31c26ebbab71f710d6b49470eb2a0.jpeg"]' data-title="6716 — W-5" onclick="openLb(this)">
+  <div class="card-top"><span>W-5</span> <span class="sku">6716</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-f901b0a023c439b944ee0032cfba0701.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-61a31c26ebbab71f710d6b49470eb2a0.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-10 6721" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cfb6354f62ef51152731e73027ac1ee2.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-3df2666c730ebe53f79ea1458fed51fa.jpeg"]' data-title="6721 — W-10" onclick="openLb(this)">
+  <div class="card-top"><span>W-10</span> <span class="sku">6721</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cfb6354f62ef51152731e73027ac1ee2.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-3df2666c730ebe53f79ea1458fed51fa.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-11 6722" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-30070035567900a4be6006e90d29151b.jpeg"]' data-title="6722 — W-11" onclick="openLb(this)">
+  <div class="card-top"><span>W-11</span> <span class="sku">6722</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-30070035567900a4be6006e90d29151b.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-12 6723" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-a6989cd3630cb1d74c8de4881a96f67f.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-04bf848cafca9aaba64b028d44088d7f.jpeg"]' data-title="6723 — W-12" onclick="openLb(this)">
+  <div class="card-top"><span>W-12</span> <span class="sku">6723</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-a6989cd3630cb1d74c8de4881a96f67f.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-04bf848cafca9aaba64b028d44088d7f.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-13 6724" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-75986b25647055c81b0f048b72ea239f.jpeg"]' data-title="6724 — W-13" onclick="openLb(this)">
+  <div class="card-top"><span>W-13</span> <span class="sku">6724</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-75986b25647055c81b0f048b72ea239f.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="декоративная цветочная ветка «w-14» 6725" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769524442971-4ex5q.jpeg"]' data-title="6725 — Декоративная цветочная ветка «W-14»" onclick="openLb(this)">
+  <div class="card-top"><span>Декоративная цветочная ветка «W-14»</span> <span class="sku">6725</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769524442971-4ex5q.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="декоративная цветочная ветка «w-15» 6726" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769524397434-np82wl.jpeg"]' data-title="6726 — Декоративная цветочная ветка «W-15»" onclick="openLb(this)">
+  <div class="card-top"><span>Декоративная цветочная ветка «W-15»</span> <span class="sku">6726</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769524397434-np82wl.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-16 6727" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e312e82b125110ac10aa336db7c8a349.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-330912e07641c77a1b33417de6b7bc95.jpeg"]' data-title="6727 — W-16" onclick="openLb(this)">
+  <div class="card-top"><span>W-16</span> <span class="sku">6727</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e312e82b125110ac10aa336db7c8a349.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-330912e07641c77a1b33417de6b7bc95.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-17 6728" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-9228bd6b3dd8f0f2fa0c1dd2870ea253.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-4b5343503eabbb506e1ba92d1e9b39b7.jpeg"]' data-title="6728 — W-17" onclick="openLb(this)">
+  <div class="card-top"><span>W-17</span> <span class="sku">6728</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-9228bd6b3dd8f0f2fa0c1dd2870ea253.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-4b5343503eabbb506e1ba92d1e9b39b7.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="декоративная цветочная ветка «w-18» 6729" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769525773036-g4ftcq.jpeg"]' data-title="6729 — Декоративная цветочная ветка «W-18»" onclick="openLb(this)">
+  <div class="card-top"><span>Декоративная цветочная ветка «W-18»</span> <span class="sku">6729</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769525773036-g4ftcq.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="декоративная цветочная ветка «w-19» 6730" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769525809119-j1gza.jpeg"]' data-title="6730 — Декоративная цветочная ветка «W-19»" onclick="openLb(this)">
+  <div class="card-top"><span>Декоративная цветочная ветка «W-19»</span> <span class="sku">6730</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769525809119-j1gza.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-20 6731" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-fdb70dbefb488e0ec138820e9cef4bc6.jpeg"]' data-title="6731 — W-20" onclick="openLb(this)">
+  <div class="card-top"><span>W-20</span> <span class="sku">6731</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-fdb70dbefb488e0ec138820e9cef4bc6.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-21 6732" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2edc0fa2d562eedff23276ec7c9bcf4c.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-19bf283ecfc6970b68ae2cd17a52e9e7.jpeg"]' data-title="6732 — W-21" onclick="openLb(this)">
+  <div class="card-top"><span>W-21</span> <span class="sku">6732</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2edc0fa2d562eedff23276ec7c9bcf4c.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-19bf283ecfc6970b68ae2cd17a52e9e7.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-22 6733" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-c184b522487565935f865218f91ea91a.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cde9228ffae4caecafdacd5fd12ca2e1.jpeg"]' data-title="6733 — W-22" onclick="openLb(this)">
+  <div class="card-top"><span>W-22</span> <span class="sku">6733</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-c184b522487565935f865218f91ea91a.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cde9228ffae4caecafdacd5fd12ca2e1.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-23 6734" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-5b212cb07cfbbff0708697929b7426d1.jpeg"]' data-title="6734 — W-23" onclick="openLb(this)">
+  <div class="card-top"><span>W-23</span> <span class="sku">6734</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-5b212cb07cfbbff0708697929b7426d1.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-24 6735" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-9afa2f201d8fb24d142c3ebb0795fad7.jpeg"]' data-title="6735 — W-24" onclick="openLb(this)">
+  <div class="card-top"><span>W-24</span> <span class="sku">6735</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-9afa2f201d8fb24d142c3ebb0795fad7.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="w-26 6740" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-1b8d41ab94b6cec362b0f42bba8df75e.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-eab1fc75170fcf7e1baf7cd67d83486c.jpeg"]' data-title="6740 — W-26" onclick="openLb(this)">
+  <div class="card-top"><span>W-26</span> <span class="sku">6740</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-1b8d41ab94b6cec362b0f42bba8df75e.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-eab1fc75170fcf7e1baf7cd67d83486c.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="декоративная цветочная ветка «w-27» 6741" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769524725868-u4t7ul.jpeg"]' data-title="6741 — Декоративная цветочная ветка «W-27»" onclick="openLb(this)">
+  <div class="card-top"><span>Декоративная цветочная ветка «W-27»</span> <span class="sku">6741</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/1769524725868-u4t7ul.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="s-21 7247" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-3fd3ef15d80d7b03aeea621c225e77c9.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-dbeae0ab379addc2877983d9000fbf0d.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-803b45bd3d8624ba91e3599eeb92633c.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-bd78b64641a9dcd396a2aae93e9cea92.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-d42b46ff350a6916de3c16841dca31ad.jpeg"]' data-title="7247 — S-21" onclick="openLb(this)">
+  <div class="card-top"><span>S-21</span> <span class="sku">7247</span> <b>5</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-3fd3ef15d80d7b03aeea621c225e77c9.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-dbeae0ab379addc2877983d9000fbf0d.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-803b45bd3d8624ba91e3599eeb92633c.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="s-22 7249" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-b7b91eeedb90935cabf976f2426a1a35.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2de772b5118013f2d1771742433eaece.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e907adcf5b0442a6bde484889d591b14.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-0fc48049ca877c8c2c2ddc696301fd0e.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-3df0d26375f7d55633334e90418636d8.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-4535cece46e1f38f7a9e84782c1b1194.jpeg"]' data-title="7249 — S-22" onclick="openLb(this)">
+  <div class="card-top"><span>S-22</span> <span class="sku">7249</span> <b>6</b></div>
+  <div class="card-imgs g3">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-b7b91eeedb90935cabf976f2426a1a35.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2de772b5118013f2d1771742433eaece.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e907adcf5b0442a6bde484889d591b14.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-133 7599" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2daa1d7df060ef23ba4e716857cd542e.jpeg"]' data-title="7599 — DH-133" onclick="openLb(this)">
+  <div class="card-top"><span>DH-133</span> <span class="sku">7599</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2daa1d7df060ef23ba4e716857cd542e.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-138 7601" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-13db55ec053a10b360aa047fcc35169c.jpeg"]' data-title="7601 — DH-138" onclick="openLb(this)">
+  <div class="card-top"><span>DH-138</span> <span class="sku">7601</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-13db55ec053a10b360aa047fcc35169c.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-139 7603" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e651112963622255d0810326ae9cb14b.jpeg"]' data-title="7603 — DH-139" onclick="openLb(this)">
+  <div class="card-top"><span>DH-139</span> <span class="sku">7603</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-e651112963622255d0810326ae9cb14b.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-140 7605" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-8b8a71bd6c43de98bca5ed78f9f7c71b.jpeg"]' data-title="7605 — DH-140" onclick="openLb(this)">
+  <div class="card-top"><span>DH-140</span> <span class="sku">7605</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-8b8a71bd6c43de98bca5ed78f9f7c71b.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-141 7607" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-280c94832fae14da2e9d82fbc0b3a571.jpeg"]' data-title="7607 — DH-141" onclick="openLb(this)">
+  <div class="card-top"><span>DH-141</span> <span class="sku">7607</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-280c94832fae14da2e9d82fbc0b3a571.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-142 7609" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-1a9b26479cdecce876d499acd8c52f12.jpeg"]' data-title="7609 — DH-142" onclick="openLb(this)">
+  <div class="card-top"><span>DH-142</span> <span class="sku">7609</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-1a9b26479cdecce876d499acd8c52f12.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-143 7611" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-0f9b062fc968b6907ba8eb1dc93c395a.jpeg"]' data-title="7611 — DH-143" onclick="openLb(this)">
+  <div class="card-top"><span>DH-143</span> <span class="sku">7611</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-0f9b062fc968b6907ba8eb1dc93c395a.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-144 7613" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-424bdd9e621db94ab0be85c391a4607a.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-377e06aa36b2eb1a93b43f10c8af161c.jpeg"]' data-title="7613 — DH-144" onclick="openLb(this)">
+  <div class="card-top"><span>DH-144</span> <span class="sku">7613</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-424bdd9e621db94ab0be85c391a4607a.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-377e06aa36b2eb1a93b43f10c8af161c.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-145 7615" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-c4c2189176d71e929c5ce319c5d66194.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-6ef1d05efaf05c84bc9c178a5ccf3932.jpeg"]' data-title="7615 — DH-145" onclick="openLb(this)">
+  <div class="card-top"><span>DH-145</span> <span class="sku">7615</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-c4c2189176d71e929c5ce319c5d66194.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-6ef1d05efaf05c84bc9c178a5ccf3932.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-153 7617" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-aa1a177809fc353c1a75cda113219bcc.jpeg"]' data-title="7617 — DH-153" onclick="openLb(this)">
+  <div class="card-top"><span>DH-153</span> <span class="sku">7617</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-aa1a177809fc353c1a75cda113219bcc.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-154 7619" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2ce87ddd7fa7d3ae9c885c1dc191cd75.jpeg"]' data-title="7619 — DH-154" onclick="openLb(this)">
+  <div class="card-top"><span>DH-154</span> <span class="sku">7619</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-2ce87ddd7fa7d3ae9c885c1dc191cd75.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="dh-155 7621" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-0279bafdaf5301b01362bb5e7df6be96.jpeg"]' data-title="7621 — DH-155" onclick="openLb(this)">
+  <div class="card-top"><span>DH-155</span> <span class="sku">7621</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-0279bafdaf5301b01362bb5e7df6be96.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="b-44 8554" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-121dd14cc9b8c4d69675001461d92d0f.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cc6da35785cc055d39ee63faffb1f184.jpeg"]' data-title="8554 — B-44" onclick="openLb(this)">
+  <div class="card-top"><span>B-44</span> <span class="sku">8554</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-121dd14cc9b8c4d69675001461d92d0f.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cc6da35785cc055d39ee63faffb1f184.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="b-43 8555" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cedacdc16ea3d295e1c919d8e1198ee5.jpeg", "https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-a473d96c70dba6b49cefdf04eb6a3880.jpeg"]' data-title="8555 — B-43" onclick="openLb(this)">
+  <div class="card-top"><span>B-43</span> <span class="sku">8555</span> <b>2</b></div>
+  <div class="card-imgs g2">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-cedacdc16ea3d295e1c919d8e1198ee5.jpeg" loading="lazy">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-a473d96c70dba6b49cefdf04eb6a3880.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="b-42 8556" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-77782c939094b1572fc18ed16e27dd9f.jpeg"]' data-title="8556 — B-42" onclick="openLb(this)">
+  <div class="card-top"><span>B-42</span> <span class="sku">8556</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-77782c939094b1572fc18ed16e27dd9f.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="b-41 8557" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-ddc338ed5354482031aa32eedca6b7c1.jpeg"]' data-title="8557 — B-41" onclick="openLb(this)">
+  <div class="card-top"><span>B-41</span> <span class="sku">8557</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-ddc338ed5354482031aa32eedca6b7c1.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="card has-img" data-name="b-40 8558" data-imgs='["https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-606beba347ab8bf9d8deebf5a70898e4.jpeg"]' data-title="8558 — B-40" onclick="openLb(this)">
+  <div class="card-top"><span>B-40</span> <span class="sku">8558</span> <b>1</b></div>
+  <div class="card-imgs g1">
+    <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-606beba347ab8bf9d8deebf5a70898e4.jpeg" loading="lazy">
+  </div>
+</div>
+<div class="section-title" style="grid-column:1/-1;">❌ Без фото</div>
+<div class="card no-img no-img-card" data-name="z-82 10493">
+  <div class="card-top"><span>Z-82</span> <span class="sku">10493</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="z-83 10495">
+  <div class="card-top"><span>Z-83</span> <span class="sku">10495</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="z-84 10497">
+  <div class="card-top"><span>Z-84</span> <span class="sku">10497</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="z-85 10499">
+  <div class="card-top"><span>Z-85</span> <span class="sku">10499</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="z-86 10501">
+  <div class="card-top"><span>Z-86</span> <span class="sku">10501</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="z-35 mix 5930">
+  <div class="card-top"><span>z-35 mix</span> <span class="sku">5930</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="dh-137 brown 6094">
+  <div class="card-top"><span>DH-137 brown</span> <span class="sku">6094</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="b-5 white 6456">
+  <div class="card-top"><span>B-5 white</span> <span class="sku">6456</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="b-5 red 6460">
+  <div class="card-top"><span>B-5 red</span> <span class="sku">6460</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="b-5 light green 6462">
+  <div class="card-top"><span>B-5 light green</span> <span class="sku">6462</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="z-8-1-2 6464">
+  <div class="card-top"><span>Z-8-1-2</span> <span class="sku">6464</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="z-8 red 6476">
+  <div class="card-top"><span>Z-8 red</span> <span class="sku">6476</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="z-8 white 6478">
+  <div class="card-top"><span>Z-8 white</span> <span class="sku">6478</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="z-8 blue 6480">
+  <div class="card-top"><span>Z-8 blue</span> <span class="sku">6480</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="w-1-2 6712">
+  <div class="card-top"><span>W-1-2</span> <span class="sku">6712</span></div>
+</div>
+<div class="card no-img no-img-card" data-name="dh-137 green 8553">
+  <div class="card-top"><span>dh-137 green</span> <span class="sku">8553</span></div>
+</div>
+</div>
+
+<div id="lb" onclick="closeLb()">
+  <span id="lb-close" onclick="closeLb()">✕</span>
+  <div id="lb-title"></div>
+  <div id="lb-imgs" onclick="event.stopPropagation()"></div>
+</div>
+
+<script>
+let currentFilter = 'all';
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterCards();
+}
+
+function filterCards() {
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(c => {
+    const matchQ = !q || (c.dataset.name || '').includes(q);
+    const hasImg = c.classList.contains('has-img');
+    const matchF = currentFilter === 'all' || (currentFilter === 'has' && hasImg) || (currentFilter === 'no' && !hasImg);
+    c.classList.toggle('hidden', !(matchQ && matchF));
+  });
+}
+
+function openLb(card) {
+  const imgs = JSON.parse(card.dataset.imgs || '[]');
+  const title = card.dataset.title || '';
+  document.getElementById('lb-title').textContent = title;
+  document.getElementById('lb-imgs').innerHTML = imgs.map(u =>
+    `<img src="${u}" onclick="window.open('${u}','_blank')">`
+  ).join('');
+  document.getElementById('lb').classList.add('open');
+}
+
+function closeLb() { document.getElementById('lb').classList.remove('open'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+</script>
+</body></html>
