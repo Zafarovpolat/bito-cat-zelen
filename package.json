@@ -4,12 +4,14 @@
   "type": "module",
   "description": "Photo upload toolkit for Bito ERP + Supabase — Зелень (Декоративная зелень)",
   "scripts": {
-    "square":    "python3 scripts/make-square.py",
-    "bito":      "node scripts/upload-bito.mjs",
-    "supabase":  "node scripts/update-supabase.mjs",
-    "sync":      "npm run square && npm run bito && npm run supabase"
+    "square": "python3 scripts/make-square.py",
+    "bito": "node scripts/upload-bito.mjs",
+    "supabase": "node scripts/update-supabase.mjs",
+    "sync": "npm run square && npm run bito && npm run supabase"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
+    "openai": "^6.45.0",
     "pg": "^8.11.0"
   }
 }
