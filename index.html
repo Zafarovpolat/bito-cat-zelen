@@ -76,37 +76,6 @@
   
   .footer { text-align: center; padding: 20px; color: #333; font-size: 11px; }
 
-  /* MIX section */
-  #mix-section {
-    padding: 12px 6px 4px;
-    border-bottom: 2px solid #27ae60;
-    margin-bottom: 6px;
-  }
-  .mix-header {
-    font-size: 13px; font-weight: 700; color: #27ae60;
-    padding: 8px 14px; letter-spacing: .5px; text-transform: uppercase;
-  }
-  #mix-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-    gap: 6px;
-  }
-  .mix-card {
-    background: #161616; border-radius: 8px; overflow: hidden;
-    border: 1px solid #27ae6055;
-  }
-  .mix-card-top {
-    padding: 8px 14px; font-size: 12px; font-weight: 700; color: #27ae60;
-    background: #0d2016; border-bottom: 1px solid #27ae6033;
-    display: flex; justify-content: space-between;
-  }
-  .mix-comparison {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-  }
-  .mix-orig { background: #1a1414; border-right: 2px solid #333; padding: 6px; }
-  .mix-result { background: #0f1f12; padding: 6px; }
-  .mix-orig .col-label { background: #2c1810; color: #e74c3c; }
-  .mix-result .col-label { background: #0a2010; color: #27ae60; }
 </style>
 </head>
 <body>
@@ -116,147 +85,6 @@
   <input type="text" id="search" placeholder="🔍 Поиск по SKU / названию..." oninput="filterCards()">
 </header>
 
-<section id="mix-section">
-  <div class="mix-header">✨ MIX фото — сгенерированные (8 продуктов)</div>
-  <div id="mix-grid">
-
-    <div class="mix-card">
-      <div class="mix-card-top"><span>vetka-S-22</span><span style="color:#888;font-weight:400">4 фото → MIX</span></div>
-      <div class="mix-comparison">
-        <div class="mix-orig">
-          <div class="col-label">Оригиналы (4)</div>
-          <img src="edited/vetka-S-22-1_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/vetka-S-22-2_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/vetka-S-22-3_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/vetka-S-22-4_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-        <div class="mix-result">
-          <div class="col-label">MIX →</div>
-          <img src="edited/vetka-S-22-mix_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-      </div>
-    </div>
-
-    <div class="mix-card">
-      <div class="mix-card-top"><span>S-21 (7247)</span><span style="color:#888;font-weight:400">4 фото → MIX</span></div>
-      <div class="mix-comparison">
-        <div class="mix-orig">
-          <div class="col-label">Оригиналы (4)</div>
-          <img src="edited/7247-1_S-21_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/7247-2_S-21_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/7247-3_S-21_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/7247-4_S-21_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-        <div class="mix-result">
-          <div class="col-label">MIX →</div>
-          <img src="edited/7247_S-21-mix_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-      </div>
-    </div>
-
-    <div class="mix-card">
-      <div class="mix-card-top"><span>S-22 (7249)</span><span style="color:#888;font-weight:400">5 фото → MIX</span></div>
-      <div class="mix-comparison">
-        <div class="mix-orig">
-          <div class="col-label">Оригиналы (5)</div>
-          <img src="edited/7249-1_S-22_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/7249-2_S-22_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/7249-3_S-22_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/7249-4_S-22_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/7249-5_S-22_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-        <div class="mix-result">
-          <div class="col-label">MIX →</div>
-          <img src="edited/7249_S-22-mix_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-      </div>
-    </div>
-
-    <div class="mix-card">
-      <div class="mix-card-top"><span>Z-16 (4255)</span><span style="color:#888;font-weight:400">5 фото → MIX</span></div>
-      <div class="mix-comparison">
-        <div class="mix-orig">
-          <div class="col-label">Оригиналы (5)</div>
-          <img src="edited/4255-1_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/4255-2_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/4255-3_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/4255-4_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/4255-5_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-        <div class="mix-result">
-          <div class="col-label">MIX →</div>
-          <img src="edited/4255_Z-16-mix_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-      </div>
-    </div>
-
-    <div class="mix-card">
-      <div class="mix-card-top"><span>W-5 (6716)</span><span style="color:#888;font-weight:400">3 фото → MIX</span></div>
-      <div class="mix-comparison">
-        <div class="mix-orig">
-          <div class="col-label">Оригиналы (3)</div>
-          <img src="edited/6716-1_W-5_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/6716-2_W-5_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/6716-3_W-5_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-        <div class="mix-result">
-          <div class="col-label">MIX →</div>
-          <img src="edited/6716_W-5-mix_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-      </div>
-    </div>
-
-    <div class="mix-card">
-      <div class="mix-card-top"><span>W-13 (6724)</span><span style="color:#888;font-weight:400">4 фото → MIX</span></div>
-      <div class="mix-comparison">
-        <div class="mix-orig">
-          <div class="col-label">Оригиналы (4)</div>
-          <img src="edited/6724-1_W-13_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/6724-2_W-13_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/6724-3_W-13_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/6724-4_W-13_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-        <div class="mix-result">
-          <div class="col-label">MIX →</div>
-          <img src="edited/6724_W-13-mix_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-      </div>
-    </div>
-
-    <div class="mix-card">
-      <div class="mix-card-top"><span>vetka-Z-30 mix</span><span style="color:#888;font-weight:400">4 фото → MIX</span></div>
-      <div class="mix-comparison">
-        <div class="mix-orig">
-          <div class="col-label">Оригиналы (4)</div>
-          <img src="edited/vetka-Z-30-1_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/vetka-Z-30-2_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/vetka-Z-30-3_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/vetka-Z-30-4_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-        <div class="mix-result">
-          <div class="col-label">MIX →</div>
-          <img src="edited/vetka-Z-30-mix_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-      </div>
-    </div>
-
-    <div class="mix-card">
-      <div class="mix-card-top"><span>vetka-Z-16 mix</span><span style="color:#888;font-weight:400">2 фото → MIX</span></div>
-      <div class="mix-comparison">
-        <div class="mix-orig">
-          <div class="col-label">Оригиналы (2)</div>
-          <img src="edited/vetka-Z-16-1_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;margin-bottom:4px;cursor:pointer">
-          <img src="edited/vetka-Z-16-2_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-        <div class="mix-result">
-          <div class="col-label">MIX →</div>
-          <img src="edited/vetka-Z-16-mix_edited.png" loading="lazy" onclick="zoomImg(this)" style="width:100%;border-radius:4px;cursor:pointer">
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <div id="grid">
 <div class="card" data-name="vetka z-8">
@@ -280,11 +108,8 @@
       <img src="originals/vetka-Z-30-mix.jpg" loading="lazy" onclick="zoomImg(this)">
     </div>
     <div class="col edit-col">
-      <div class="col-label">Edited (4)</div>
-      <img src="edited/vetka-Z-30-1_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/vetka-Z-30-2_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/vetka-Z-30-3_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/vetka-Z-30-4_edited.png" loading="lazy" onclick="zoomImg(this)">
+      <div class="col-label">MIX (4)</div>
+      <img src="edited/vetka-Z-30-mix_edited.png" loading="lazy" onclick="zoomImg(this)">
     </div>
   </div>
 </div>
@@ -296,9 +121,8 @@
       <img src="originals/vetka-Z-16-mix.jpg" loading="lazy" onclick="zoomImg(this)">
     </div>
     <div class="col edit-col">
-      <div class="col-label">Edited (2)</div>
-      <img src="edited/vetka-Z-16-1_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/vetka-Z-16-2_edited.png" loading="lazy" onclick="zoomImg(this)">
+      <div class="col-label">MIX (2)</div>
+      <img src="edited/vetka-Z-16-mix_edited.png" loading="lazy" onclick="zoomImg(this)">
     </div>
   </div>
 </div>
@@ -310,11 +134,8 @@
       <img src="originals/vetka-S-22.jpg" loading="lazy" onclick="zoomImg(this)">
     </div>
     <div class="col edit-col">
-      <div class="col-label">Edited (4)</div>
-      <img src="edited/vetka-S-22-1_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/vetka-S-22-2_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/vetka-S-22-3_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/vetka-S-22-4_edited.png" loading="lazy" onclick="zoomImg(this)">
+      <div class="col-label">MIX (4)</div>
+      <img src="edited/vetka-S-22-mix_edited.png" loading="lazy" onclick="zoomImg(this)">
     </div>
   </div>
 </div>
@@ -524,12 +345,8 @@
       <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-83871fc5a1dea7ca920640c2bf3f1637.jpeg" loading="lazy" onclick="zoomImg(this)">
     </div>
     <div class="col edit-col">
-      <div class="col-label">Edited (5)</div>
-      <img src="edited/4255-1_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/4255-2_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/4255-3_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/4255-4_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/4255-5_Z-16_edited.png" loading="lazy" onclick="zoomImg(this)">
+      <div class="col-label">MIX (5)</div>
+      <img src="edited/4255_Z-16-mix_edited.png" loading="lazy" onclick="zoomImg(this)">
     </div>
   </div>
 </div>
@@ -937,10 +754,8 @@
       <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-61a31c26ebbab71f710d6b49470eb2a0.jpeg" loading="lazy" onclick="zoomImg(this)">
     </div>
     <div class="col edit-col">
-      <div class="col-label">Edited (3)</div>
-      <img src="edited/6716-1_W-5_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/6716-2_W-5_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/6716-3_W-5_edited.png" loading="lazy" onclick="zoomImg(this)">
+      <div class="col-label">MIX (3)</div>
+      <img src="edited/6716_W-5-mix_edited.png" loading="lazy" onclick="zoomImg(this)">
     </div>
   </div>
 </div>
@@ -993,11 +808,8 @@
       <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-75986b25647055c81b0f048b72ea239f.jpeg" loading="lazy" onclick="zoomImg(this)">
     </div>
     <div class="col edit-col">
-      <div class="col-label">Edited (4)</div>
-      <img src="edited/6724-1_W-13_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/6724-2_W-13_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/6724-3_W-13_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/6724-4_W-13_edited.png" loading="lazy" onclick="zoomImg(this)">
+      <div class="col-label">MIX (4)</div>
+      <img src="edited/6724_W-13-mix_edited.png" loading="lazy" onclick="zoomImg(this)">
     </div>
   </div>
 </div>
@@ -1187,11 +999,8 @@
       <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-d42b46ff350a6916de3c16841dca31ad.jpeg" loading="lazy" onclick="zoomImg(this)">
     </div>
     <div class="col edit-col">
-      <div class="col-label">Edited (4)</div>
-      <img src="edited/7247-1_S-21_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/7247-2_S-21_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/7247-3_S-21_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/7247-4_S-21_edited.png" loading="lazy" onclick="zoomImg(this)">
+      <div class="col-label">MIX (4)</div>
+      <img src="edited/7247_S-21-mix_edited.png" loading="lazy" onclick="zoomImg(this)">
     </div>
   </div>
 </div>
@@ -1208,13 +1017,8 @@
       <img src="https://yjfyvedavmrdifmepvkh.supabase.co/storage/v1/object/public/products/products/bito-file-4535cece46e1f38f7a9e84782c1b1194.jpeg" loading="lazy" onclick="zoomImg(this)">
     </div>
     <div class="col edit-col">
-      <div class="col-label">Edited (6)</div>
-      <img src="edited/7249-1_S-22_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/7249-2_S-22_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/7249-3_S-22_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/7249-4_S-22_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/7249-5_S-22_edited.png" loading="lazy" onclick="zoomImg(this)">
-      <img src="edited/7249_mix_S-22_edited.png" loading="lazy" onclick="zoomImg(this)">
+      <div class="col-label">MIX (5)</div>
+      <img src="edited/7249_S-22-mix_edited.png" loading="lazy" onclick="zoomImg(this)">
     </div>
   </div>
 </div>
