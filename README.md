@@ -13,6 +13,7 @@ npm install
 
 | Команда | Что делает |
 |---------|-----------|
+| `npm run generate` | **Генерирует фото товара из оригинала (используя GPT-4)** |
 | `npm run square` | Приводит все PNG в `edited/` к квадрату 1:1 |
 | `npm run bito` | Загружает все фото на Bito (обложка товара) |
 | `npm run supabase` | Обновляет ссылки на фото в Supabase |
@@ -51,6 +52,32 @@ BITO_PRICE_ID=6706187e...       ← ID прайса в Bito
 SUPABASE_DSN=postgresql://...   ← строка подключения к БД
 GITHUB_BASE=https://zafarovpolat.github.io/bito-cat-zelen/edited
 ```
+
+## 🎨 Генерация фото товаров (NEW)
+
+Используй GPT-4 Vision для автоматического удаления фона и обработки фото:
+
+```bash
+# Node.js версия (рекомендуется)
+npm run generate -- --input ~/photo.jpg --output "9001-Z-1-green-1.png"
+
+# Или Python версия
+python3 scripts/generate-product-photo.py --input ~/photo.jpg --output "9001-Z-1-green-1.png"
+
+# С пользовательским промптом
+npm run generate -- \
+  --input ~/photo.jpg \
+  --output "9001-Z-1-green-1.png" \
+  --prompt "Remove background and place on pure white"
+```
+
+📖 **Полная документация:** см. `GENERATE.md`
+
+Скрипт:
+- ✅ Убирает фон автоматически
+- ✅ Выравнивает свет
+- ✅ Сохраняет в `edited/` с правильным именем
+- ✅ Логирует все операции в `generation-log.jsonl`
 
 ## Обновление JWT токена Bito
 
